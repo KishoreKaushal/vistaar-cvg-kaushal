@@ -20,4 +20,4 @@ class epsilonGreedy:
 
     def updateVal(self, index , reward):
         self.count[index]+=1
-        self.Q[index] += (reward - self.Q[i])/self.count[i]
+        self.Q[index] += (reward - self.Q[index])/self.count[index]
