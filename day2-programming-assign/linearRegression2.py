@@ -41,7 +41,8 @@ else:
     plt.show()
 
 
-    fout = open('dat2.answer' , 'w')
+    outFname = (fname.split('.'))[0]+".answer"
+    fout = open(outFname , 'w')
     result = "SLOPE: "+str(m)+"\nINTERCEPT: "+str(c)+"\n"
     fout.write(result)
     fout.close()
