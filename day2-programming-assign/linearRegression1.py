@@ -25,7 +25,7 @@ weights = inv_matrices.dot(B)
 # y = mx + c
 print("SLOPE: ", m, "INTERCEPT: ", c)
 
-X = np.array([3 , 10])
+X = np.array([np.min(x), np.max(x)])
 Y = np.zeros(X.shape)
 Y[0] = m*X[0]+c
 Y[1] = m*X[1]+c
