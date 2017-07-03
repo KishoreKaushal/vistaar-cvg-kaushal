@@ -34,3 +34,8 @@ plt.scatter(x,y)
 plt.figure(1)
 plt.plot(X,Y,'b-')
 plt.show()
+
+fout = open('dat1.answer' , 'w')
+result = "SLOPE: "+str(m)+"\nINTERCEPT: "+str(c)+"\n"
+fout.write(result)
+fout.close()
