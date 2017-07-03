@@ -17,7 +17,6 @@ sum_xi_yi = (x*y).sum()
 
 weights = np.array([0 , 0])
 
-
 A = np.array([[n, sum_xi], [sum_xi , sum_xi_sqr]])
 B = np.array([sum_yi , sum_xi_yi])
 inv_matrices = inv(A)

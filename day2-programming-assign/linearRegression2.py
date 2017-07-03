@@ -4,9 +4,9 @@ import numpy as np
 from numpy.linalg import inv
 import matplotlib.pyplot as plt
 
-fname = 'dat1.txt'
+fname = 'dat2.txt'
 data = np.loadtxt(fname)
-y = data[:,0]
+y = data[:]
 x = np.arange(1,len(data)+1)
 
 n = int(len(x))
@@ -26,7 +26,7 @@ weights = inv_matrices.dot(B)
 # y = mx + c
 print("SLOPE: ", m, "INTERCEPT: ", c)
 
-X = np.array([0, 20])
+X = np.array([np.min(x), np.max(x)])
 Y = np.zeros(X.shape)
 Y[0] = m*X[0]+c
 Y[1] = m*X[1]+c
