@@ -33,9 +33,9 @@ else:
     Y[0] = m*X[0]+c
     Y[1] = m*X[1]+c
 
-    plt.scatter(x,y)
+    plt.scatter(x,y,'bo')
     plt.figure(1)
-    plt.plot(X,Y,'b-')
+    plt.plot(X,Y,'r-')
     plt.show()
 
     outFname = (fname.split('.'))[0]+".answer"

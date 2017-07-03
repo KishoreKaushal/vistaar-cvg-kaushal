@@ -37,7 +37,7 @@ else:
 
     plt.scatter(x,y)
     plt.figure(1)
-    plt.plot(X,Y,'b-')
+    plt.plot(X,Y,'r-')
     plt.show()
 
 
