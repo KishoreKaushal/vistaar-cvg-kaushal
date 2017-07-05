@@ -90,8 +90,8 @@ S_dev = sqrt(((S-S_mean).dot((S-S_mean).T)) / len(S))
 V_dev = sqrt(((V-V_mean).dot((V-V_mean).T)) / len(V))
 
 const_var = 2
-lower_bound = [H_mean - H_dev , S_mean-S_dev , V_mean - V_dev]
-upper_bound = [H_mean+S_dev, S_mean+S_dev , V_mean + V_dev]
+lower_bound = [H_mean - H_dev , (S_mean-3*S_dev)/2 , (V_mean - 1.5*V_dev)/2]
+upper_bound = [H_mean+H_dev, S_mean+S_dev , V_mean + V_dev]
 print("Lower Bound: " , lower_bound)
 print("upper_bound: ", upper_bound)
 
@@ -109,4 +109,6 @@ while(1):
     k = cv2.waitKey(5) & 0xFF
     if k == 27:
         break
+print("Lower Blue: " , lower_blue)
+print("Upper Blue: ", upper_blue)
 cv2.destroyAllWindows()
