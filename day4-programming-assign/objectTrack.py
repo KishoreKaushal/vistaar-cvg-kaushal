@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import numpy as np
+from math import *
 import cv2
 import matplotlib.pyplot as plt
 from scipy.stats import mode
@@ -54,7 +55,7 @@ cv2.destroyAllWindows()
 #print("INIT: " , init_x , init_y)
 #print("FINAL: ", final_x , final_y)
 
-roi = frame[init_y:final_y,init_x:final_x,:]
+roi = frame[init_y:final_y , init_x:final_x,:]
 print(roi.shape)
 
 newImg = cv2.cvtColor(roi , cv2.COLOR_BGR2HSV)
@@ -73,18 +74,26 @@ plt.imshow(newImg)
 plt.show()
 
 
-H , _ = mode(newImg[:,:,0])
-S , _ = mode(newImg[:,:,1])
-V , _ = mode(newImg[:,:,2])
+H = np.array([newImg[:,:,0]])
+S = np.array([newImg[:,:,1]])
+V = np.array([newImg[:,:,2]])
 
-print("H: ", H[0,0])
+H = np.array(list(H.flat))
+S = np.array(list(S.flat))
+V = np.array(list(V.flat))
+H_mean = np.sum(H)/len(H)
+S_mean = np.sum(S)/len(S)
+V_mean = np.sum(V)/len(V)
+
+H_dev = sqrt(((H-H_mean).dot((H-H_mean).T)) / len(H))
+S_dev = sqrt(((S-S_mean).dot((S-S_mean).T)) / len(S))
+V_dev = sqrt(((V-V_mean).dot((V-V_mean).T)) / len(V))
+
 const_var = 2
-lower_bound = [H[0,0]-const_var , S[0,0]-const_var , V[0,0]-const_var]
-upper_bound = [H[0,0]+const_var , S[0,0]+const_var , V[0,0]+const_var]
-
-
-print("Lower Bound" , lower_bound)
-print(upper_bound)
+lower_bound = [H_mean - H_dev , S_mean-S_dev , V_mean - V_dev]
+upper_bound = [H_mean+S_dev, S_mean+S_dev , V_mean + V_dev]
+print("Lower Bound: " , lower_bound)
+print("upper_bound: ", upper_bound)
 
 cap = cv2.VideoCapture(0)
 while(1):
