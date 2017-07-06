@@ -91,7 +91,7 @@ V_dev = sqrt(((V-V_mean).dot((V-V_mean).T)) / len(V))
 
 const_var = 2
 lower_bound = [H_mean - H_dev , (S_mean-3*S_dev)/2 , (V_mean - 1.5*V_dev)/2]
-upper_bound = [H_mean+H_dev, S_mean+S_dev , V_mean + V_dev]
+upper_bound = [H_mean+H_dev, S_mean+S_dev/2, V_mean + V_dev/5]
 print("Lower Bound: " , lower_bound)
 print("upper_bound: ", upper_bound)
 
