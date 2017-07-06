@@ -46,7 +46,6 @@ for i in range(len(areas)):
     print("Loop: ",i, *hull[:,0,:], "LoopEnd")
     corn_pts = np.array(list(hull[:,0,:]))
 
-
     # finding angles
 
     n = len(corn_pts)   # number of points
