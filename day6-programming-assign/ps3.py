@@ -11,7 +11,7 @@ def lt(px, a, b):
 
 
 
-im = cv2.imread("emmaConf.jpg",0)
+im = cv2.imread("ps1-input0-noise.png",0)
 r,c = im.shape
 red_channel = im[:,:]
 red_channel = red_channel.flat
@@ -45,3 +45,4 @@ cv2.imshow("original" , im)
 cv2.imshow("transform" , red)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
